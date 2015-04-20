@@ -39,7 +39,6 @@ module.exports = function(grunt) {
                     '<%=bowerDir%>/angular-ui-router/release/angular-ui-router.js',
                     '<%=bowerDir%>/angular-bootstrap/ui-bootstrap-tpls.js',
                     '<%=bowerDir%>/ng-tags-input/ng-tags-input.js',
-                    '<%=bowerDir%>/angular-smart-table/dist/smart-table.min.js',
                     '<%=bowerDir%>/ng-lodash/build/ng-lodash.min.js'
                 ],
                 css: [
