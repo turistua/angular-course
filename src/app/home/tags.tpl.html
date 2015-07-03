@@ -1,0 +1,30 @@
+<div class="app-home">
+   <div class="row">
+
+      <div class="col-md-8">
+         <a class="btn btn-primary" ui-sref="tags">Tags manager</a>
+         <a class="btn btn-primary" ui-sref="grid">Grid manager</a>
+
+         <div class="input-group">
+            <tags-input ng-model="tags">
+               <auto-complete source="loadTags($query)" replace-spaces-with-dashes="false"></auto-complete>
+            </tags-input>
+         <span class="input-group-btn">
+           <button class="btn btn-success" type="button" ng-click="syncPeople('forward')" ng-class="{'disabled': tagsSyncVerification() === false}"
+                   ng-disabled="tagsSyncVerification() === false">Sync</button>
+         </span>
+         </div>
+
+         <div>{{ tags }}</div>
+
+         <div>Current team: <span ng-model="currentTeam">{{ currentTeam }}</span></div>
+
+      </div>
+
+      <div class="col-md-4">
+         <teams current-team="currentTeam" tags="tags"></teams>
+      </div>
+
+   </div>
+</div>
+

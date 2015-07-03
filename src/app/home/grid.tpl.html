@@ -1,0 +1,47 @@
+<div class="app-home">
+   <div class="row">
+
+      <div class="col-md-8">
+         <a class="btn btn-primary" ui-sref="tags">Tags manager</a>
+         <a class="btn btn-primary" ui-sref="grid">Grid manager</a>
+
+         <table class="table table-striped">
+            <thead>
+            <tr>
+               <th>Name</th>
+               <th>Age</th>
+               <th>Grade</th>
+               <th>Job</th>
+               <th>operations</th>
+            </tr>
+            <tr>
+               <th colspan="5">
+                  <input placeholder="Search" class="input-sm form-control" type="search" ng-model="search.$" />
+               </th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="row in peopleCollection | filter: search | limitTo : 10">
+            <tr ng-click="expandedState = !expandedState">
+               <td><span tooltip="{{row.grade}} {{row.job}}">{{row.name}}</span></td>
+               <td>{{row.age}}</td>
+               <td>{{row.grade}}</td>
+               <td>{{row.job}}</td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr>
+               <td colspan="5" ng-show="expandedState"> Detailed info about {{ row.grade }} {{ row.job }} {{ row.name }}.
+                  <button class="btn btn-primary" ng-click="addPerson(row.name)" ng-class="{'disabled': !currentTeam}" ng-disabled="!currentTeam">add me</button></td>
+            </tr>
+            </tbody>
+         </table>
+
+         <div>Current team: {{ currentTeam }}</div>
+
+      </div>
+
+      <div class="col-md-4">
+         <teams current-team="currentTeam" tags="tags"></teams>
+      </div>
+
+   </div>
+</div>

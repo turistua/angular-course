@@ -1,0 +1,19 @@
+<h4>Teams list</h4>
+<form name="newTeamForm" novalidate>
+   <div class="input-group">
+      <input type="text" ng-model="newTeam.name" class="form-control" teamvalidator />
+                 <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" ng-click="addTeam()"
+                            ng-disabled="newTeamForm.$invalid" ng-class="{'disabled': newTeamForm.$invalid}">Add team</button>
+                 </span>
+   </div>
+</form>
+
+<h4>Select team</h4>
+<accordion close-others="oneAtATime">
+   <accordion-group heading="{{t.name}}" ng-repeat="(id, t) in teams" ng-click="setCurrentTeam(t.id)" is-open="expandTeam(t.id)" ng-class="{currentTeam: isCurrentTeam(t.id)}">
+      <ul>
+         <li ng-repeat="member in t.members">{{member.text}} <button class="btn btn-danger pull-right" ng-click="removeMember(member)"><i class="fa fa-times-circle"></i></button></li>
+      </ul>
+   </accordion-group>
+</accordion>

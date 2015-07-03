@@ -17,11 +17,12 @@ module.exports = function(grunt) {
             src: {
                 dir: '<%= frontDir %>',
                 js: {
+                    init: ['app/**/*.init.js'],
                     app: ['app/**/*.js', '!app/**/*.spec.js'],
                     common: ['common/**/*.js', '!common/**/*.spec.js']
                 },
                 jsunit: [ '<%= frontDir %>/app/**/*.spec.js' ],
-                jshint: [ '<%= frontDir %>/app/**/*.js', '!<%= frontDir %>/app/**/*.spec.js' ],
+                jshint: [ '<%= frontDir %>/app/**/*.init.js', '<%= frontDir %>/app/**/*.js', '!<%= frontDir %>/app/**/*.spec.js' ],
                 tpl: [ '<%= frontDir %>/app/**/*.tpl.html', '<%= frontDir %>/common/**/*.tpl.html' ],
                 html: ['**/*.html', '!**/*.tpl.html'],
                 less: {
@@ -341,6 +342,7 @@ module.exports = function(grunt) {
     /**
      * Run predefined tasks whenever watched file patterns are added, changed or deleted.
      */
+
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.extendConfig({
         watch: {
@@ -397,7 +399,7 @@ module.exports = function(grunt) {
         'http-server': {
             dev: {
                 root: './build',
-                port: 8080,
+                port: 8088,
                 host: "localhost",
                 cache: 0,
                 showDir : true,
