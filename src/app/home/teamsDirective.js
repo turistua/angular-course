@@ -19,7 +19,6 @@ angular.module('awesome-app.home')
             link: function (scope, elem, attrs) {
                 scope.teams = teamsFactory.getTeams();
                 scope.currentTeam = teamsFactory.getCurrentTeam();
-                scope.tags = [];
 
                 scope.addTeam = function() {
                     var id = new Date().getTime();

@@ -7,9 +7,7 @@ angular.module('awesome-app.home').
         $scope.init = function () {
             $scope.expandedState = false;
             $scope.currentTeam = teamsFactory.getCurrentTeam();
-            console.log($scope.currentTeam);
             $scope.tags = ($scope.currentTeam !== false) ? angular.copy($scope.currentTeam.members) : [];
-            console.log($scope.tags);
         };
         $scope.init();
 

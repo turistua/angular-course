@@ -32,6 +32,7 @@ angular.module('awesome-app.home')
         }
 
         function updateTeam(data) {
+            data.members = lodash.uniq(data.members, function(item){return item.text;});
             teams[data.id] = data;
         }
 
