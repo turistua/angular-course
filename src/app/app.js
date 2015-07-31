@@ -13,4 +13,7 @@ angular.module('awesome-app', [
 ]).
 config(['$urlRouterProvider', function($urlRouterProvider) {
     $urlRouterProvider.otherwise('/tags');
-}]);
+}])
+    .config(['StaffProvider', function(StaffProvider) {
+            StaffProvider.setUrl('http://localhost:3000/people');
+        }]);
